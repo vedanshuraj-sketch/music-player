@@ -1,0 +1,82 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4e2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        .song-title {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #f2f2f2;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .card img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        .card audio {
+            width: 100%;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card {
+            transition: 0.3s ease;
+        }
+        .card.playing {
+            background-color: #e0f2ff;
+            border: 2px solid #4aa3ff;
+            transform: scale(1.02);
+        }
