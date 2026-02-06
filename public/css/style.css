@@ -8,6 +8,7 @@
         .container {
             width: 400px;
             margin: 40px auto;
+            background: #181818;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
@@ -45,6 +46,8 @@
             background-color: #f2f2f2;
             padding: 12px;
             border-radius: 12px;
+            transition: 0.3s ease;
+            cursor: pointer;
         }
 
         .card img {
@@ -79,4 +82,24 @@
             background-color: #e0f2ff;
             border: 2px solid #4aa3ff;
             transform: scale(1.02);
+        }
+        .image-wrapper {
+            position: relative;
+        }
+        .play-btn {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: #a8b1ab;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+            z-index: 10;
+        }
+        .card:hover .play-btn {
+            display: block;
         }
