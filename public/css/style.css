@@ -1,17 +1,20 @@
         body {
             font-family: Arial, sans-serif;
-            background-color: #eaf4e2;
+            background-color: #0c0c0c;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            width: 400px;
-            margin: 40px auto;
-            background: #181818;
-            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px;
+            background: #2a2a2a;
+            background-color: rgb(38, 38, 38);
             padding: 20px;
             border-radius: 10px;
+            
         }
 
 
@@ -19,6 +22,7 @@
             text-align: center;
             margin-bottom: 25px;
             font-weight: bold;
+            color: #e0f2ff;
         }
 
         ol {
@@ -26,7 +30,9 @@
         }
 
         li {
-            margin-bottom: 20px;
+            
+            list-style: none;
+            
         }
 
         .song-title {
@@ -38,21 +44,35 @@
             width: 100%;
             border-radius: 30px;
         }
+        #songs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
         .card {
             display: flex;
             align-items: center;
-            gap: 15px;
-            background-color: #f2f2f2;
+            gap: 12px;
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 12px;
             border-radius: 12px;
-            transition: 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
+            height: 200px;
+            flex-direction: column;
+            text-align: center;
         }
 
         .card img {
-            width: 70px;
-            height: 70px;
+            width: 150px;
+            height: 140px;
             border-radius: 10px;
             object-fit: cover;
         }
@@ -62,8 +82,9 @@
         }
 
         .card-content h3 {
-            margin: 0 0 6px 0;
-            font-size: 16px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #111;
         }
 
         .card audio {
@@ -78,19 +99,24 @@
         .card {
             transition: 0.3s ease;
         }
+
         .card.playing {
             background-color: #e0f2ff;
             border: 2px solid #4aa3ff;
             transform: scale(1.02);
         }
+
         .image-wrapper {
             position: relative;
+            width: 100%;
         }
+
         .play-btn {
             position: absolute;
-            bottom: 8px;
-            right: 8px;
+            bottom: 10px;
+            right: 10px;
             background-color: #a8b1ab;
+            color: black;
             border: none;
             border-radius: 50%;
             width: 40px;
@@ -100,6 +126,44 @@
             display: none;
             z-index: 10;
         }
+
         .card:hover .play-btn {
             display: block;
+        }
+
+        #bottom-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #181818;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .bp-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #bp-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .bp-controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            margin: 0 8px;
         }

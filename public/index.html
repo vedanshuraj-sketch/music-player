@@ -2,24 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Static Music Player using XHTML and HTML5" />
-    <meta name="keywords" content="XHTML, HTML5, Audio Player, Media Tags" />
-    <meta name="author" content="Student" />
-    <meta http-equiv="refresh" content="600" />
-    <meta charset="UTF-8">
-    <title>Audio Player</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="Static Music Player using XHTML and HTML5" />
+  <meta name="keywords" content="XHTML, HTML5, Audio Player, Media Tags" />
+  <meta name="author" content="Student" />
+  <meta http-equiv="refresh" content="600" />
+  <meta charset="UTF-8">
+  <title>Audio Player</title>
 
-   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <h1>MUSIC PLAYER</h1>
   <div class="container">
-    <h1>AUDIO PLAYER</h1>
+
     <article>
-      <ol id="songs"></ol>
+      <ol id="songs" ></ol>
     </article>
   </div>
+
+  <div id="bottom-player">
+    <div class="bp-left">
+      <img id="bp-image" src="" alt="song">
+      <div>
+        <div id="bp-title">No song playing</div>
+      </div>
+    </div>
+
+    <div class="bp-controls">
+      <button id="bp-prev">⏮</button>
+      <button id="bp-play">▶</button>
+      <button id="bp-next">⏭</button>
+    </div>
+  </div>
+
 
   <script src="js/script.js"></script>
 </body>
