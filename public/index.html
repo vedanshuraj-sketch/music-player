@@ -6,7 +6,7 @@
   <meta name="description" content="Static Music Player using XHTML and HTML5" />
   <meta name="keywords" content="XHTML, HTML5, Audio Player, Media Tags" />
   <meta name="author" content="Student" />
-  <meta http-equiv="refresh" content="600" />
+  <meta http-equiv="refresh" content="1200" />
   <meta charset="UTF-8">
   <title>Audio Player</title>
 
@@ -15,7 +15,17 @@
 
 <body>
   <h1>MUSIC PLAYER</h1>
-  <div class="container">
+  <nav class="navbar">
+  <div class = "navbar">
+    <div class="logo">Music Player</div>
+    <ul class="nav-links">
+      <li>Home</li>
+      <li>Playlists</li>
+      <li>Linked</li>
+      <li>Search</li>
+    </ul>
+  </nav>
+    <div class="container">
 
     <article>
       <ol id="songs" ></ol>
@@ -27,14 +37,26 @@
       <img id="bp-image" src="" alt="song">
       <div>
         <div id="bp-title">No song playing</div>
+        <div class="time">
+          <span id="current-time">0:00</span> /
+          <span id="duration">0:00</span>
       </div>
     </div>
 
-    <div class="bp-controls">
+    <div class="bp-center">
+      <div class="controls-row">
+      <button id="bp-shuffle">🔀</button>
       <button id="bp-prev">⏮</button>
       <button id="bp-play">▶</button>
       <button id="bp-next">⏭</button>
+      <button id="bp-repeat">🔁</button>
+        </div>
+      <input type="range" id="progress" value="0" min="0" step="1">
     </div>
+
+    <div class = "bp-right">
+      <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+      </div>
   </div>
 
 

@@ -46,7 +46,7 @@
         }
         #songs {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             list-style: none;
             padding: 0;
@@ -84,7 +84,7 @@
         .card-content h3 {
             margin-top: 10px;
             font-size: 14px;
-            color: #111;
+            color: #dbdbdb;
         }
 
         .card audio {
@@ -136,7 +136,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 70px;
+            height: 90px;
             background: #181818;
             color: white;
             display: flex;
@@ -144,19 +144,62 @@
             justify-content: space-between;
             padding: 0 20px;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+            gap: 30px;
         }
 
         .bp-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            min-width: 250px;
+        }
+        .bp-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
         }
 
         #bp-image {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             object-fit: cover;
             border-radius: 6px;
+        }
+        .time {
+            font-size: 13px;
+            color: #aaa;
+            white-space: nowrap;
+        }
+        .bp-center button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        #progress {
+            width: 450px;
+        }
+
+        .bp-right {
+            min-width: 180px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+        }
+        #volume {
+            width: 120px;
         }
 
         .bp-controls button {
@@ -166,4 +209,37 @@
             font-size: 22px;
             cursor: pointer;
             margin: 0 8px;
+        }
+
+        .navbar {
+            height: 60px;
+            background: #121212;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links li {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .nav-links li:hover {
+            opacity: 1;
         }
