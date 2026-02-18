@@ -14,18 +14,45 @@ async function loadSongs() {
     const response = await fetch("/songs", {cache: "no-store"});
     songsList = await response.json();
 
-    const container = document.getElementById("songs");
+        songsList = songsList.map(song => ({
+      ...song,
+      liked: false
+    }));
+
+    const savedLikes = JSON.parse(localStorage.getItem("likedSongs")) || [];
+
+    songsList = songsList.map(song => ({
+      ...song,
+      liked: savedLikes.includes(song.title)
+    }));
+
+    renderSongs(songsList);
+    console.log("Songs loaded: ", songsList);
+
+
+    
+  } catch (err) {
+    console.error(err);
+    document.getElementById("songs").innerHTML =
+      "<p style='color:red'>Failed to load songs</p>";
+  }
+}
+function renderSongs(list){
+  const container = document.getElementById("songs");
     container.innerHTML = "";
 
-    songsList.forEach((song, index) => {
+    list.forEach((song, index) => {
       container.innerHTML += `
        
           <div class="card">
             <div class="image-wrapper">
               <img src="${song.image}" alt="${song.title}">
               <button class="play-btn" data-index = "${index}">▶</button>
+              
             </div>
-
+            <button class="like-btn" data-index="${index}">
+              ${song.liked ?  "❤️" : "🤍"}
+              </button>
             <div class="card-content">
               <h3>${song.title}</h3>
               <audio src="${song.audio}"></audio>
@@ -34,20 +61,31 @@ async function loadSongs() {
         
       `;
     });
-  } catch (err) {
-    console.error(err);
-    document.getElementById("songs").innerHTML =
-      "<p style='color:red'>Failed to load songs</p>";
-  }
 }
-
 /* ONE click handler*/
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("play-btn")) return;
 
- const index = parseInt(e.target.dataset.index);
- playSong(index);
+  // PLAY BUTTON
+  if (e.target.classList.contains("play-btn")) {
+    const index = parseInt(e.target.dataset.index);
+    playSong(index);
+    return;
+  }
+
+  // LIKE BUTTON
+  if (e.target.classList.contains("like-btn")) {
+    const index = parseInt(e.target.dataset.index);
+
+    songsList[index].liked = !songsList[index].liked;
+
+    saveLikedSongs();
+
+    renderSongs(songsList);
+    return;
+  }
+
 });
+
 
 
 const progress = document.getElementById("progress");
@@ -186,6 +224,37 @@ function nextSong() {
   } else if (repeatMode === "all") {
     playSong(0);
   }
+}
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", function () {
+  const value = this.value.toLowerCase();
+
+  const filteredSongs = songsList.filter(function (song) {
+    return song.title.toLowerCase().includes(value);
+  });
+
+  console.log("Filtered: ", filteredSongs);
+
+  renderSongs(filteredSongs);
+});
+
+document.getElementById("nav-home").addEventListener("click", () => {
+  renderSongs(songsList);
+});
+
+document.getElementById("nav-liked").addEventListener("click", () =>{
+  const likedSongs = songsList.filter(song => song.liked);
+  renderSongs(likedSongs);
+});
+
+function saveLikedSongs() {
+  const likedSongs = songsList
+  .filter(song => song.liked)
+    .map(song => song.title);
+
+    localStorage.setItem("likedSongs", JSON.stringify(likedSongs));
 }
 
 loadSongs();

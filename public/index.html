@@ -16,14 +16,16 @@
 <body>
   <h1>MUSIC PLAYER</h1>
   <nav class="navbar">
-  <div class = "navbar">
     <div class="logo">Music Player</div>
     <ul class="nav-links">
-      <li>Home</li>
-      <li>Playlists</li>
-      <li>Linked</li>
-      <li>Search</li>
+      <li id="nav-home">Home</li>
+      <li id="nav-playlists">Playlists</li>
+      <li id="nav-liked">Liked</li>
+      
     </ul>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Search songs..."/>
+      </div>
   </nav>
     <div class="container">
 
@@ -41,6 +43,7 @@
           <span id="current-time">0:00</span> /
           <span id="duration">0:00</span>
       </div>
+    </div>
     </div>
 
     <div class="bp-center">
